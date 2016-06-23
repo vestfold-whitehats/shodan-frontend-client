@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Shodan Visualizer</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+<style>
+body { margin:0; padding:0; background-color:black; }
+#map { position:absolute; top:0; bottom:0; width:80%; }
+#control { float:right; top:0; bottom:0; width:20%; color:white; padding-left:15px; font-family:"Lucida Console", Monaco, monospace;}
+</style>
+</head>
+<body>
+<div id='map'></div>
+<div id="control">
+<form>
+API KEY: <br><input type="text" name="api" id="api"><br>
+Shodan Query: <br><input type="text" name="query" id="query"><br><br>
+<input type="button" value="Submit" onclick="showMe();">
+</form>
+</div>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1Ijoicm9ic2F0OTEiLCJhIjoiY2lwcjcwb3NqMDA3YmhzbWF5YndjcThrNCJ9.iUEXlcfIuRLnMDGo6cJD6w';
+var map = L.mapbox.map('map', 'mapbox.dark')
+.setView([59.264983, 10.403434], 2); //59.264983, 10.403434
+map.on('click', function(e) {
+alert(e.latlng);
+});
+</script>
+<script type="text/javascript" src="library.js"></script>
+</body>
+</html>
